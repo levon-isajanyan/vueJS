@@ -1,11 +1,16 @@
-const path = require('path')
 module.exports = {
   pluginOptions: {
     'style-resources-loader': {
-      'preProcessor': 'scss',
-      'patterns': [
-        path.resolve(__dirname, './src/scss/*.scss')
+      preProcessor: 'scss',
+      patterns: [
+        '/Users/dev/Desktop/vueJS/src/scss/*.scss'
       ]
+    },
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true
     }
   }
 }

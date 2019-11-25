@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-row>
+      <el-col :span="12">
+        <el-container>
+          <img alt="Vue logo" src="../assets/logo.png">
+        </el-container>
+      </el-col>
+      <el-col :span="12">
+        <el-container>
+          <h1>
+            {{$t('message', currentSelectedLanguage)}}
+          </h1>
+        </el-container>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  computed: {
+    ...mapState([
+      'currentSelectedLanguage'
+    ])
   }
 }
 </script>

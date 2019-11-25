@@ -15,6 +15,8 @@ This project is for other aims and there is no any other destiantion for public 
 | eslint | [![style: styled-components](https://img.shields.io/badge/eslint-v5.16.0-blue)](https://eslint.org/) |
 | vue-cli-plugin-style-resources-loader | [![style: styled-components](https://img.shields.io/badge/vue--cli--plugin--style--resources--loader-v0.1.4-blue)](https://github.com/nguyenvanduocit/vue-cli-plugin-style-resources-loader/#readme) |
 | element-ui (ui framework) | [![style: styled-components](https://img.shields.io/badge/element--ui-v2.4.5-blue)](https://element.eleme.io/#/en-US) |
+| i18n | [![style: styled-components](https://img.shields.io/badge/vue--i18n-v8.0.0-blue)](https://kazupon.github.io/vue-i18n/) |
+| vue-country-flags | [![style: styled-components](https://img.shields.io/badge/vue--country--flags-v1.0.2-blue)](https://www.npmjs.com/package/vue-country-flags) |
 
 # Project tree
 
@@ -57,3 +59,15 @@ This project is for other aims and there is no any other destiantion for public 
 └── vue.config.js
 
 ```
+
+# Compnonents list
+
+| Components name        | location |
+| ------------- |:-------------:|
+| Button.vue      | compnents/microcomponents/button.vue |
+| flags.vue      | compnents/microcomponents/flags.vue |
+
+
+# App graph vizualizations
+
+[how does i18n(language localization work)](i18n.pdf)
