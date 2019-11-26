@@ -4,5 +4,6 @@
     "technicalSection": "Техническая часцть",
     "buyItemBtnText": "Подтвердить",
     "checkBoxInfoTitle": "Выберите один из опций",
-    "checkboxMiddleCellText": "Добавить"
+    "checkboxMiddleCellText": "Добавить",
+    "writersCountDropdownText": "Число авторов"
 }

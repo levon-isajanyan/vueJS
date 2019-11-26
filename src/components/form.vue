@@ -1,5 +1,7 @@
 <template>
   <form>
+    <!-- Dropdown -->
+    <drop-dwn @dropDownChange="writersCount" :dropdownLabel="$t(dropdownLabelArray[0], currentSelectedLanguage)" />
     <!-- Checkbox table -->
     <check-box @inputEmit="change()" :labelTitle="$t(checkBoxTextArray[0], currentSelectedLanguage)" :checkBoxLabelSecond="$t(checkBoxTextArray[1], currentSelectedLanguage)" />
     <!-- Submit button -->
@@ -9,6 +11,8 @@
 
 <script>
 import { mapState } from 'vuex'
+// Import dropdown
+import dropDwn from '@/components/microcomponents/dropdown.vue'
 // import buy btn
 import buyBtn from '@/components/microcomponents/SubmitButton.vue'
 // Import check box
@@ -18,7 +22,8 @@ export default {
   name: 'buy-form',
   components: {
     buyBtn,
-    checkBox
+    checkBox,
+    dropDwn
   },
   data: function () {
     return {
@@ -31,7 +36,8 @@ export default {
       'languageList', // Languages array which available for this app
       'currentSelectedLanguage',
       'buttonsTextArray', // Button text translation
-      'checkBoxTextArray' // Checkbox text translation
+      'checkBoxTextArray', // Checkbox text translation
+      'dropdownLabelArray' // Dropdown label text transalation
     ])
   },
   methods: {
@@ -42,6 +48,10 @@ export default {
     // Emitted function for checkbox
     change (arg) {
       console.log(arg)
+    },
+    // Emitted function for writers count
+    writersCount () {
+      alert('I am from writers count emit')
     }
   }
 }

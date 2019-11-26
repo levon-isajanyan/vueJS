@@ -4,5 +4,6 @@
   "technicalSection": "Technical part",
   "buyItemBtnText": "Submit",
   "checkBoxInfoTitle": "Please select options (optional)",
-  "checkboxMiddleCellText": "Add"
+  "checkboxMiddleCellText": "Add",
+  "writersCountDropdownText": "Numbers of writers"
 }

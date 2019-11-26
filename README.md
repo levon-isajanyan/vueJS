@@ -79,7 +79,7 @@ This project is for other aims and there is no any other destiantion for public 
 | Button.vue      | compnents/microcomponents/button.vue |  buttonText, buttonDisableStatus, buttonPrice|
 | flags.vue      | compnents/microcomponents/flags.vue | iso |
 | checkBoxElement.vue | compnents/microcomponents/checkBoxElement.vue | labelTitle, checkboxStatus, checkBoxLabelSecond |
-
+| dropdown.vue | compnents/microcomponents/dropdown.vue | dropdownLabel |
 
 # App graph vizualizations
 
