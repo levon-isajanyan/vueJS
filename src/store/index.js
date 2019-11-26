@@ -36,6 +36,16 @@ export default new Vuex.Store({
     dropdownLabelArray: [
       'writersCountDropdownText'
     ],
+    inputLabelsArray: [
+      'inputLabelBudgetText',
+      'inputTextAreaInstructionText'
+    ],
+    currencyArray: [
+      'USD',
+      'RUB',
+      'EUR',
+      'AMD'
+    ],
     writerDropDownArray: [
       { id: 12 },
       { id: 13 },
@@ -52,6 +62,9 @@ export default new Vuex.Store({
       { id: 7 },
       { id: 83 },
       { id: 27 }
+    ],
+    validationRulesArray: [
+      { textAreaWordMaximum: 30 }
     ]
   },
   mutations: {

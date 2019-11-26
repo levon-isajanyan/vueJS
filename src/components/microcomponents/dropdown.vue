@@ -1,7 +1,7 @@
 <template>
   <div class="drodown-element">
     <!-- Label -->
-    <div class="drodown-label">
+    <div class="drodown-label sub-title">
       <label>{{ dropdownLabel }}</label>
     </div>
     <el-dropdown  size="medium" split-button  @command="commandSelect">

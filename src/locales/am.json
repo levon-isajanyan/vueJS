@@ -5,5 +5,7 @@
     "buyItemBtnText": "Հաստատել",
     "checkBoxInfoTitle": "Խնդրում ենք ընտրել տարբերակներից մեկը ( Հավելյալ )",
     "checkboxMiddleCellText": "Ավելացնել",
-    "writersCountDropdownText": "Հոդվածագիրների քանակ"
+    "writersCountDropdownText": "Հոդվածագիրների քանակ",
+    "inputLabelBudgetText": "Բյուջե",
+    "inputTextAreaInstructionText": "Հրահանգ"
 }

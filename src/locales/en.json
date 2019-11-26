@@ -5,5 +5,7 @@
   "buyItemBtnText": "Submit",
   "checkBoxInfoTitle": "Please select options (optional)",
   "checkboxMiddleCellText": "Add",
-  "writersCountDropdownText": "Numbers of writers"
+  "writersCountDropdownText": "Numbers of writers",
+  "inputLabelBudgetText": "Budget",
+  "inputTextAreaInstructionText": "Instructions"
 }

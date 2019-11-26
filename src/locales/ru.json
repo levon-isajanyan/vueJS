@@ -5,5 +5,7 @@
     "buyItemBtnText": "Подтвердить",
     "checkBoxInfoTitle": "Выберите один из опций",
     "checkboxMiddleCellText": "Добавить",
-    "writersCountDropdownText": "Число авторов"
+    "writersCountDropdownText": "Число авторов",
+    "inputLabelBudgetText": "Бюджет",
+    "inputTextAreaInstructionText": "Инструкция"
 }
