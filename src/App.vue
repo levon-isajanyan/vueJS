@@ -31,14 +31,14 @@
       <el-row>
         <el-col :span="12">
           <!-- Vue-router to modal page -->
-          <router-link to="/">
-            Home
+          <router-link to="/" @click.native="callModal()">
+            {{ $t(navigationModalWord[0], currentSelectedLanguage) }}
           </router-link>
         </el-col>
         <el-col :span="12">
           <!-- Vue-router to technician page -->
           <router-link to="/technical">
-            Technical description
+            {{ $t(navigationModalWord[1], currentSelectedLanguage) }}
           </router-link>
         </el-col>
       </el-row>
@@ -51,6 +51,7 @@
 // import country flag component
 import countryFlags from '@/components/microcomponents/flags.vue'
 import { mapState, mapActions } from 'vuex'
+import buttonGroup from '@/components/microcomponents/SubmitButton.vue'
 
 export default {
   name: 'app',
@@ -64,13 +65,48 @@ export default {
   },
   computed: {
     ...mapState([
-      'languageList' // Languages array which available for this app
+      'languageList', // Languages array which available for this app
+      'currentSelectedLanguage',
+      'navigationModalWord'
     ])
   },
   methods: {
     ...mapActions([
       'changeLanguageAction' // Event action to choose which language is choosed
-    ])
+    ]),
+    callModal () {
+      const h = this.$createElement
+      this.$msgbox({
+        title: 'Message',
+        message: h('p', null, [
+          h('span', null, 'Message can be '),
+          h('i', { style: 'color: teal' }, 'VNode'),
+          h(buttonGroup)
+        ]),
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        beforeClose: (action, instance, done) => {
+          if (action === 'confirm') {
+            instance.confirmButtonLoading = true
+            instance.confirmButtonText = 'Loading...'
+            setTimeout(() => {
+              done()
+              setTimeout(() => {
+                instance.confirmButtonLoading = false
+              }, 300)
+            }, 3000)
+          } else {
+            done()
+          }
+        }
+      }).then(action => {
+        this.$message({
+          type: 'info',
+          message: 'action: ' + action
+        })
+      })
+    }
   }
 }
 </script>

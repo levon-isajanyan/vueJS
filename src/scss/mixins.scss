@@ -10,3 +10,21 @@
 @mixin textPropertyMixin($color) {
     color: $color;
 }
+@mixin buttonProperties($backColor, $color, $fontSize, $hover, $active, $backHover, $border) {
+    background-color: $backColor !important;
+    color: $color !important;
+    font-size: $fontSize !important;
+    border: none !important;
+    border-radius: $border !important;
+    -webkit-border-radius: $border !important;
+    -moz-border-radius: $border !important;
+    -ms-border-radius: $border !important;
+    -o-border-radius: $border !important;
+    &:hover {
+        color: $hover !important;
+        background-color: $backHover !important;
+    }
+    &:active {
+        color: $active !important;
+    }
+}

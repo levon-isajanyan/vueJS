@@ -1,3 +1,6 @@
 {
-  "message": "You have choosed english"
+  "message": "You have choosed english",
+  "navigationModalSection": "Open modal",
+  "technicalSection": "Technical part",
+  "buyItemBtnText": "Submit"
 }

@@ -62,10 +62,10 @@ This project is for other aims and there is no any other destiantion for public 
 
 # Compnonents list
 
-| Components name        | location |
-| ------------- |:-------------:|
-| Button.vue      | compnents/microcomponents/button.vue |
-| flags.vue      | compnents/microcomponents/flags.vue |
+| Components name        | location | props |
+| ------------- |:-------------:| :-------------:| 
+| Button.vue      | compnents/microcomponents/button.vue |  buttonText, buttonDisableStatus, buttonPrice|
+| flags.vue      | compnents/microcomponents/flags.vue | iso |
 
 
 # App graph vizualizations

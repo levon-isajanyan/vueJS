@@ -21,7 +21,14 @@ export default new Vuex.Store({
       }
     ],
     // Current sleected labguage for i18n
-    currentSelectedLanguage: 'en'
+    currentSelectedLanguage: 'en',
+    navigationModalWord: [
+      'navigationModalSection',
+      'technicalSection'
+    ],
+    buttonsTextArray: [
+      'buyItemBtnText'
+    ]
   },
   mutations: {
     // changeLanguageAction muatation

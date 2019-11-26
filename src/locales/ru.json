@@ -1,3 +1,6 @@
 {
-    "message": "Вы выбрали Русский"
+    "message": "Вы выбрали Русский",
+    "navigationModalSection": "Открыть окно",
+    "technicalSection": "Техническая часцть",
+    "buyItemBtnText": "Подтвердить"
 }

@@ -1,31 +1,15 @@
 <template>
   <div class="home">
-    <el-row>
-      <el-col :span="12">
-        <el-container>
-          <img alt="Vue logo" src="../assets/logo.png">
-        </el-container>
-      </el-col>
-      <el-col :span="12">
-        <el-container>
-          <h1>
-            {{$t('message', currentSelectedLanguage)}}
-          </h1>
-        </el-container>
-      </el-col>
-    </el-row>
+    <buy-frm />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
+import buyFrm from '@/components/form.vue'
 export default {
   name: 'home',
-  computed: {
-    ...mapState([
-      'currentSelectedLanguage'
-    ])
+  components: {
+    buyFrm
   }
 }
 </script>
