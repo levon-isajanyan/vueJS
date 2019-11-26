@@ -28,6 +28,10 @@ export default new Vuex.Store({
     ],
     buttonsTextArray: [
       'buyItemBtnText'
+    ],
+    checkBoxTextArray: [
+      'checkBoxInfoTitle',
+      'checkboxMiddleCellText'
     ]
   },
   mutations: {

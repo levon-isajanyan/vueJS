@@ -2,5 +2,7 @@
     "message": "Вы выбрали Русский",
     "navigationModalSection": "Открыть окно",
     "technicalSection": "Техническая часцть",
-    "buyItemBtnText": "Подтвердить"
+    "buyItemBtnText": "Подтвердить",
+    "checkBoxInfoTitle": "Выберите один из опций",
+    "checkboxMiddleCellText": "Добавить"
 }

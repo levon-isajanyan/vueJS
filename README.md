@@ -25,6 +25,7 @@ This project is for other aims and there is no any other destiantion for public 
 ├── README.md
 ├── babel.config.js
 ├── cypress.json
+├── i18n.pdf
 ├── package-lock.json
 ├── package.json
 ├── public
@@ -35,8 +36,19 @@ This project is for other aims and there is no any other destiantion for public 
 │   ├── assets
 │   │   └── logo.png
 │   ├── components
-│   │   └── HelloWorld.vue
+│   │   ├── form.vue
+│   │   └── microcomponents
+│   │       ├── SubmitButton.vue
+│   │       ├── checkBoxElement.vue
+│   │       └── flags.vue
+│   ├── i18n.js
+│   ├── locales
+│   │   ├── am.json
+│   │   ├── en.json
+│   │   └── ru.json
 │   ├── main.js
+│   ├── plugins
+│   │   └── element.js
 │   ├── router
 │   │   └── index.js
 │   ├── scss
@@ -66,6 +78,7 @@ This project is for other aims and there is no any other destiantion for public 
 | ------------- |:-------------:| :-------------:| 
 | Button.vue      | compnents/microcomponents/button.vue |  buttonText, buttonDisableStatus, buttonPrice|
 | flags.vue      | compnents/microcomponents/flags.vue | iso |
+| checkBoxElement.vue | compnents/microcomponents/checkBoxElement.vue | labelTitle, checkboxStatus, checkBoxLabelSecond |
 
 
 # App graph vizualizations

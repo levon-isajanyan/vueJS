@@ -2,5 +2,7 @@
   "message": "You have choosed english",
   "navigationModalSection": "Open modal",
   "technicalSection": "Technical part",
-  "buyItemBtnText": "Submit"
+  "buyItemBtnText": "Submit",
+  "checkBoxInfoTitle": "Please select options (optional)",
+  "checkboxMiddleCellText": "Add"
 }

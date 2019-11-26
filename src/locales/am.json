@@ -2,5 +2,7 @@
     "message": "դուք ընտրել էք հայերեն",
     "navigationModalSection": "Բացել պատուհան",
     "technicalSection": "Տեխնիկական բաժին",
-    "buyItemBtnText": "Հաստատել"
+    "buyItemBtnText": "Հաստատել",
+    "checkBoxInfoTitle": "Խնդրում ենք ընտրել տարբերակներից մեկը ( Հավելյալ )",
+    "checkboxMiddleCellText": "Ավելացնել"
 }
