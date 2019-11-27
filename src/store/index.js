@@ -74,22 +74,56 @@ export default new Vuex.Store({
       { textAreaWordMaximum: 30 }
     ],
     JsonResponse: {
+      id: '132',
       publication: 'Healty.com',
       images: {
         full_size: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Culinary_fruits_front_view.jpg'
       }
+    },
+    RequestForm: {
+      link: {
+        valid_link: null,
+        link_value: null
+      },
+      instruction: {
+        valid_instruction: null,
+        instruction_value: null
+      },
+      writers_number: null,
+      budget_value: {
+        valid_budget: null,
+        budget: null
+      },
+      extra_option: [
+
+      ]
     }
   },
   mutations: {
     // changeLanguageAction muatation
     changeLanguageMutation (state, value) {
       state.currentSelectedLanguage = value
+    },
+    checkedMuation (state, value) {
+      for (var prop in state.RequestForm) {
+        if (Object.prototype.hasOwnProperty.call(state.RequestForm, prop)) {
+          if (prop === value.type) {
+            var currentFormObject = state.RequestForm[prop]
+            // Assign information about validation status
+            currentFormObject[Object.keys(value)[1]] = Object.values(value)[1]
+            currentFormObject[Object.keys(value)[2]] = Object.values(value)[2]
+          }
+        }
+      }
     }
   },
   actions: {
     // map action from view side
     changeLanguageAction (context, value) {
       context.commit('changeLanguageMutation', value)
+    },
+    checkedInputsValue (context, value) {
+      context.commit('checkedMuation', value)
     }
   }
 })
