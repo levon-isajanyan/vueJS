@@ -43,6 +43,10 @@ export default new Vuex.Store({
       'inputLabelLinkText',
       'inputLinkPLaceholder'
     ],
+    titlesArray: [
+      'formTitletext',
+      'formMainTitle'
+    ],
     currencyArray: [
       'USD',
       'RUB',
@@ -68,7 +72,13 @@ export default new Vuex.Store({
     ],
     validationRulesArray: [
       { textAreaWordMaximum: 30 }
-    ]
+    ],
+    JsonResponse: {
+      publication: 'Healty.com',
+      images: {
+        full_size: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Culinary_fruits_front_view.jpg'
+      }
+    }
   },
   mutations: {
     // changeLanguageAction muatation

@@ -1,5 +1,18 @@
 <template>
   <form>
+    <div class="image-wrapper" :style="{  backgroundImage: 'url(' + JsonResponse.images.full_size + ')'  }">
+        <el-button class="roundicon" icon="el-icon-back" circle></el-button>
+    </div>
+    <h4 class="form-title">
+      {{ $t(titlesArray[1], currentSelectedLanguage) }}
+    </h4>
+    <h3 class="url-title">
+      {{ JsonResponse.publication }}
+    </h3>
+    <h3 class="title-element">
+      {{ $t(titlesArray[0], currentSelectedLanguage) }}
+    </h3>
+    <hr>
     <!-- Link input -->
     <div>
       <!-- Label -->
@@ -91,7 +104,9 @@ export default {
       'dropdownLabelArray', // Dropdown label text transalation
       'inputLabelsArray', // Standart input label text translation
       'currencyArray', // Currency array from vuex
-      'validationRulesArray' // Rules validation array
+      'validationRulesArray', // Rules validation array
+      'titlesArray', // Titles translation array
+      'JsonResponse'
     ])
   },
   methods: {
@@ -128,4 +143,31 @@ export default {
   .input-icon-label {
     font-size: $small-typograpy-size;
   };
+  .title-element {
+    color: $hover-color;
+    font-size: $normal-typography-size;
+  };
+  .url-title {
+    color: $active-color;
+    font-size: $normal-typography-size;
+  };
+  .form-title {
+    color: $text-color;
+    font-size: $normal-typography-size;
+  }
+  .image-wrapper  img {
+    max-width:100%;
+    max-height:100%;
+  }
+  .image-wrapper a {
+    display: $block
+  }
+  .image-wrapper {
+    background-size: 100% 100%;
+    @include minHeight (360px);
+    position: $relative;
+  }
+  .roundicon {
+    @include absoluteAlign (1em, 1em)
+  }
 </style>

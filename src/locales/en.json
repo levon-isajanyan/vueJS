@@ -10,5 +10,7 @@
   "inputTextAreaInstructionText": "Instructions",
   "textAreaPlaceholderText": "Enter your",
   "inputLabelLinkText": "Source",
-  "inputLinkPLaceholder": "link"
+  "inputLinkPLaceholder": "link",
+  "formTitletext": "Enter detail of article, which you want to order",
+  "formMainTitle": "10 healty fruit you should use"
 }

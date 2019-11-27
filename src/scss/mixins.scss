@@ -28,3 +28,11 @@
         color: $active !important;
     }
 }
+@mixin absoluteAlign ($left, $top) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+@mixin minHeight ($minHeight) {
+    min-height: $minHeight;
+}
