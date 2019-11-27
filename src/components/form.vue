@@ -48,7 +48,7 @@
         <label>{{ $t(inputLabelsArray[0], currentSelectedLanguage) }}  {{  currencyArray[0]  }}</label>
       </div>
       <!-- Input -->
-      <el-input type="number" :min="5" max="500" size="medium" v-model="inputIconV">
+      <el-input  size="medium" v-model="inputIconV" @input="budgetCheck(inputIconV)">
         <template slot="prepend"><i class="el-icon-money"></i></template>
       </el-input>
     </div>
@@ -82,7 +82,7 @@ export default {
       // Current button dynamic price
       currentPrice: 0,
       // Input icon v-model
-      inputIconV: '',
+      inputIconV: null,
       // Text area v-model
       textarea: null,
       // FUnction to count words length
@@ -157,6 +157,25 @@ export default {
           type: 'link',
           valid_link: false,
           link_value: e
+        })
+      }
+    },
+    // Check budget
+    budgetCheck (e) {
+      let filteredText = e.replace(/\D/g, '')
+      this.inputIconV = filteredText
+      let numberConverted = Number(this.inputIconV)
+      if (numberConverted >= this.validationRulesArray[1].budgetMin && numberConverted <= this.validationRulesArray[1].budgetMax) {
+        this.checkedInputsValue({
+          type: 'budget_value',
+          valid_budget: true,
+          budget: numberConverted
+        })
+      } else {
+        this.checkedInputsValue({
+          type: 'budget_value',
+          valid_budget: false,
+          budget: 0
         })
       }
     }

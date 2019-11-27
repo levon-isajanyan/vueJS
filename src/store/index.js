@@ -71,7 +71,11 @@ export default new Vuex.Store({
       { id: 27 }
     ],
     validationRulesArray: [
-      { textAreaWordMaximum: 30 }
+      { textAreaWordMaximum: 30 },
+      {
+        budgetMin: 5,
+        budgetMax: 500
+      }
     ],
     JsonResponse: {
       id: '132',
