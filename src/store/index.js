@@ -93,7 +93,10 @@ export default new Vuex.Store({
         valid_instruction: null,
         instruction_value: null
       },
-      writers_number: null,
+      writers: {
+        valid_writers: null,
+        writers_value: null
+      },
       budget_value: {
         valid_budget: null,
         budget: null

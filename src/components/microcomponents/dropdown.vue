@@ -40,7 +40,7 @@ export default {
   methods: {
     // Method to call when user click on item
     commandSelect (argument) {
-      this.$emit('dropDownChange')
+      this.$emit('dropDownChange', argument)
       // Via argument select value
       this.currentOption = argument
       console.log(`I am from dropdown and my argument is ${argument}`)
