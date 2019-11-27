@@ -1,5 +1,18 @@
 <template>
   <form>
+    <!-- Link input -->
+    <div>
+      <!-- Label -->
+      <div class="input-icon-label sub-title">
+        <label>{{ $t(inputLabelsArray[3], currentSelectedLanguage) }}</label>
+      </div>
+      <!-- Link input -->
+      <el-input
+        :focus="checkLink(linkInputVmodel)"
+        :placeholder="$t(inputLabelsArray[2], currentSelectedLanguage) + ` ` + $t(inputLabelsArray[4], currentSelectedLanguage)"
+        v-model="linkInputVmodel">
+      </el-input>
+    </div>
     <!-- Техtarea -->
     <div>
       <!-- Label -->
@@ -11,6 +24,7 @@
         :rows="2"
         resize="none"
         :change="countWords(textarea)"
+        :placeholder="$t(inputLabelsArray[2], currentSelectedLanguage) + ` ` + $t(inputLabelsArray[1], currentSelectedLanguage)"
         v-model="textarea">
       </el-input>
     </div>
@@ -61,6 +75,10 @@ export default {
       // FUnction to count words length
       countWordsFunction: function (str) {
         return str.trim().split(/\s+/).length
+      },
+      linkInputVmodel: '',
+      urlValidationFunction: function (value) {
+        return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value)
       }
     }
   },
@@ -73,7 +91,7 @@ export default {
       'dropdownLabelArray', // Dropdown label text transalation
       'inputLabelsArray', // Standart input label text translation
       'currencyArray', // Currency array from vuex
-      'validationRulesArray'
+      'validationRulesArray' // Rules validation array
     ])
   },
   methods: {
@@ -93,6 +111,13 @@ export default {
     countWords (e) {
       if (this.countWordsFunction(e) > this.validationRulesArray[0].textAreaWordMaximum) {
         e.Replace(e, String.Empty)
+      }
+    },
+    // Link url validation
+    checkLink (e) {
+      let condition = this.urlValidationFunction(e)
+      if (condition) {
+        console.log(`Your email is valid`)
       }
     }
   }

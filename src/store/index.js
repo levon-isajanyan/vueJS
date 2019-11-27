@@ -38,7 +38,10 @@ export default new Vuex.Store({
     ],
     inputLabelsArray: [
       'inputLabelBudgetText',
-      'inputTextAreaInstructionText'
+      'inputTextAreaInstructionText',
+      'textAreaPlaceholderText',
+      'inputLabelLinkText',
+      'inputLinkPLaceholder'
     ],
     currencyArray: [
       'USD',
