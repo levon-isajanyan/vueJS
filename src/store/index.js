@@ -1,6 +1,65 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+// Get only vuex global object keys values
+function getObjectValues (globalObject, globalSubkey, globalSubkeyChildrenKey) {
+  for (let key in globalObject) {
+    if (globalObject.hasOwnProperty(key)) {
+      // Global vuex subkey
+      if (key === globalSubkey) {
+        let object = globalObject[key]
+        for (let subkeyChildren in object) {
+          if (object.hasOwnProperty(subkeyChildren)) {
+            if (subkeyChildren === globalSubkeyChildrenKey) {
+              return object[subkeyChildren]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Return increase only global object  values array element price which  status is true
+function getObjectArraysKeyValues (globalState, globalStateSubkey, globalsubkeyChildren) {
+  for (let key in globalState) {
+    if (globalState.hasOwnProperty(key)) {
+      if (key === globalStateSubkey) {
+        let objectSubkey = globalState[key]
+        if (objectSubkey.hasOwnProperty(globalsubkeyChildren)) {
+          let arr = objectSubkey[globalsubkeyChildren]
+          if (arr.length >= 1) {
+            return arr.map(function (x) {
+              if (x.checkStatus) {
+                return x.increase
+              }
+            })
+          } else {
+            return false
+          }
+        }
+      }
+    }
+  }
+}
+
+function calc (count, value, inclrease) {
+  let customer = count
+  let price = value
+  let increasePrice = inclrease
+  console.log(customer, price, increasePrice)
+  if (Array.isArray(increasePrice) && increasePrice.length) {
+    let x = customer * price
+    for (let k = 0; k < increasePrice.length; k++) {
+      x = x * (1 + increasePrice[k] / 100)
+    }
+    return x
+  } else {
+    let summary = customer * price
+    return summary
+  }
+}
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -94,16 +153,17 @@ export default new Vuex.Store({
         instruction_value: null
       },
       writers: {
-        valid_writers: null,
+        valid_writers: 3,
         writers_value: null
       },
       budget_value: {
         valid_budget: null,
-        budget: null
+        budget: 10
       },
       extra_option: [
 
-      ]
+      ],
+      totalPriceForWork: 0
     }
   },
   mutations: {
@@ -112,6 +172,11 @@ export default new Vuex.Store({
       state.currentSelectedLanguage = value
     },
     checkedMuation (state, value) {
+      let writers = getObjectValues(state, 'RequestForm', 'writers')
+      let budget = getObjectValues(state, 'RequestForm', 'budget_value')
+      let increase = getObjectArraysKeyValues(state, 'RequestForm', 'extra_option')
+      let oopa = calc(writers.writers_value, budget.budget_value, increase)
+      console.log(oopa)
       for (var prop in state.RequestForm) {
         if (Object.prototype.hasOwnProperty.call(state.RequestForm, prop)) {
           if (prop === value.type) {
