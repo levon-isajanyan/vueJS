@@ -55,7 +55,7 @@
     <!-- Dropdown -->
     <drop-dwn @dropDownChange="writersCount($event)"  :dropdownLabel="$t(dropdownLabelArray[0], currentSelectedLanguage)" />
     <!-- Checkbox table -->
-    <check-box @inputEmit="change(index, $event)" :labelTitle="$t(checkBoxTextArray[0], currentSelectedLanguage)" :checkBoxLabelSecond="$t(checkBoxTextArray[1], currentSelectedLanguage)" />
+    <check-box @inputEmit="change($event)" :labelTitle="$t(checkBoxTextArray[0], currentSelectedLanguage)" :checkBoxLabelSecond="$t(checkBoxTextArray[1], currentSelectedLanguage)" />
     <!-- Submit button -->
     <buy-btn @buyBtnEmit="buyThisItem()" :buttonText="$t(buttonsTextArray[0], currentSelectedLanguage)" :buttonPrice="currentPrice" />
   </form>
@@ -112,7 +112,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'checkedInputsValue' // Event action to choose which language is choosed
+      'checkedInputsValue', // Event action to choose which language is choosed
+      'checkBoxAction'
     ]),
     // Emitted function to call when user click on submit btn
     buyThisItem () {
@@ -120,7 +121,13 @@ export default {
     },
     // Emitted function for checkbox
     change (arg) {
-      console.log(arg)
+      this.checkBoxAction({
+        type: 'extra_option',
+        id: arg.id,
+        increase: arg.increase,
+        name: arg.name,
+        checkStatus: arg.checkStatus
+      })
     },
     // Emitted function for writers count
     writersCount (arg) {
@@ -135,7 +142,7 @@ export default {
       if (this.countWordsFunction(e) > this.validationRulesArray[0].textAreaWordMaximum) {
         let requredRangeOfWords = e.split(/\s+/).slice(0, this.validationRulesArray[0].textAreaWordMaximum).join(' ')
         this.textarea = requredRangeOfWords
-        this.checkedInputsValue({
+        this.checkBoxAction({
           type: 'instruction',
           valid_instruction: false,
           instruction_value: this.textarea

@@ -122,6 +122,40 @@ export default new Vuex.Store({
           }
         }
       }
+    },
+    pushExtraIntoArray (state, value) {
+      // Check if element iexist in extara_option array
+      function checkObjectExistence (arrayArgument, arrayObjectId) {
+        let index = arrayArgument.findIndex(x => x.id === arrayObjectId)
+        return index
+      }
+      for (var prop in state.RequestForm) {
+        if (Object.prototype.hasOwnProperty.call(state.RequestForm, prop)) {
+          if (prop === value.type) {
+            var extraArray = state.RequestForm[prop]
+            if (Array.isArray(extraArray)) {
+              if (extraArray.length >= 1) {
+                for (let i = 0; i < extraArray.length; i++) {
+                  if (extraArray[i].id === value.id) {
+                    // Update already existence object
+                    extraArray[i][Object.keys(extraArray[i])[0]] = Object.values(value)[0]
+                    extraArray[i][Object.keys(extraArray[i])[1]] = Object.values(value)[1]
+                    extraArray[i][Object.keys(extraArray[i])[2]] = Object.values(value)[2]
+                    extraArray[i][Object.keys(extraArray[i])[3]] = Object.values(value)[3]
+                    extraArray[i][Object.keys(extraArray[i])[4]] = Object.values(value)[4]
+                  } else if (checkObjectExistence(extraArray, value.id) === -1) {
+                    // Push new object of not exist with current ID which need to push
+                    extraArray.push(value)
+                  }
+                }
+              } else {
+                // First time checkbox check event (invoke once)
+                extraArray.push(value)
+              }
+            }
+          }
+        }
+      }
     }
   },
   actions: {
@@ -131,6 +165,9 @@ export default new Vuex.Store({
     },
     checkedInputsValue (context, value) {
       context.commit('checkedMuation', value)
+    },
+    checkBoxAction (context, value) {
+      context.commit('pushExtraIntoArray', value)
     }
   }
 })

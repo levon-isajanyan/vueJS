@@ -21,7 +21,7 @@
       <el-table-column>
          <!-- table  element[i] checkbox -->
         <template slot-scope="scope">
-          <input class="billing-checkbox" type="checkbox"  :value="scope.row.id" checked="checkboxStatus" @input="$emit('inputEmit')">
+          <input class="billing-checkbox" type="checkbox" :checked="checked" @input="$emit('inputEmit', {id: scope.row.id, increase: scope.row.increase, name: scope.row.name, checkStatus: checked = $event.target.checked})">
         </template>
       </el-table-column>
     </el-table>
@@ -36,11 +36,6 @@ export default {
     labelTitle: {
       type: String,
       default: 'Please select options (optional)'
-    },
-    // Boolean for table checkbox
-    checkboxStatus: {
-      type: Boolean,
-      default: true
     },
     // Table price side text
     checkBoxLabelSecond: {
@@ -57,13 +52,13 @@ export default {
         increase: 20
       },
       {
-        id: 222,
+        id: 12,
         name: 'Copy-Editing',
         extra_id: 2222,
         increase: 10
       },
       {
-        id: 224,
+        id: 69,
         name: 'Proof-reading',
         extra_id: 2224,
         increase: 20
@@ -74,7 +69,6 @@ export default {
   methods: {
     // Set class for table title
     tableRowClassName ({ row, rowIndex }) {
-      console.log(rowIndex)
       if (rowIndex >= 0) {
         return 'tr-header'
       }
